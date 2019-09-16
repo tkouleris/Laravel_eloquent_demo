@@ -17,14 +17,16 @@ class GlobalController extends Controller
         foreach($products as $product)
         {
             foreach($product->categories as $category){
-                $tmp_array = array();
-                $tmp_array['Product'] = $product->title;
-                $tmp_array['sku'] = $product->sku;
-                $tmp_array['Category'] = $category->title;
-                $tmp_array['CategoryDescr'] = $category->description;
+                $product_array = array();
+                $product_array['id'] = $product->id;
+                $product_array['sku'] = $product->sku;
+                $product_array['title'] = $product->title;
+                $product_array['description'] = $product->description;
+                $product_array['price'] = $product->price;
+                $product_array['Category'] = $category->title;
+                $product_array['CategoryDescr'] = $category->description;
 
-
-                array_push($output, $tmp_array);
+                array_push($output, $product_array);
             }
         }
 
@@ -50,14 +52,16 @@ class GlobalController extends Controller
             foreach($product->categories as $category){
                 if($category->id != 1) continue;
 
-                $tmp_array = array();
-                $tmp_array['Product'] = $product->title;
-                $tmp_array['sku'] = $product->sku;
-                $tmp_array['Category'] = $category->title;
-                $tmp_array['CategoryDescr'] = $category->description;
+                $product_array = array();
+                $product_array['id'] = $product->id;
+                $product_array['sku'] = $product->sku;
+                $product_array['title'] = $product->title;
+                $product_array['description'] = $product->description;
+                $product_array['price'] = $product->price;
+                $product_array['Category'] = $category->title;
+                $product_array['CategoryDescr'] = $category->description;
 
-
-                array_push($output, $tmp_array);
+                array_push($output, $product_array);
             }
         }
 
