@@ -18,3 +18,6 @@ Route::get('/', function () {
 
 Route::get('/products_foreach', 'GlobalController@getProducts_foreach');
 Route::get('/products_leftjoin', 'GlobalController@getProducts_leftjoin');
+
+Route::get('/products_foreach_category_1', 'GlobalController@getProducts_foreach_category_1');
+Route::get('/products_leftjoin_category_1', 'GlobalController@getProducts_leftjoin_category_1');
