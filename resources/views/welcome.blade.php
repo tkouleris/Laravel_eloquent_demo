@@ -122,6 +122,14 @@
                         </tr>
                         <tr>
                             <td>
+                                <a href="{{ url('/products_eager_load_category_1') }}">/products_eager_load_category_1</a>
+                            </td>
+                            <td>
+                                Products with category id equals to 1 using foreach loop to collect data (eager load)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 <a href="{{ url('/products_leftjoin_category_1') }}">/products_leftjoin_category_1</a>
                             </td>
                             <td>

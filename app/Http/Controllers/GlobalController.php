@@ -64,6 +64,37 @@ class GlobalController extends Controller
         return $output;
     }
 
+    public function getProducts_eager_load_category_1()
+    {
+        $products = Product::with(['categories'=>function($query){
+            $query->where('id', '=', '1');
+        }])->get();
+
+        $output = array();
+        foreach($products as $product)
+        {
+
+            if(is_null($product->categories)) continue;
+            foreach($product->categories as $category){
+
+                $product_array = array();
+                $product_array['id'] = $product->id;
+                $product_array['sku'] = $product->sku;
+                $product_array['title'] = $product->title;
+                $product_array['description'] = $product->description;
+                $product_array['price'] = $product->price;
+                $product_array['Category'] = $category->title;
+                $product_array['CategoryDescr'] = $category->description;
+
+                array_push($output, $product_array);
+            }
+        }
+
+        return $output;
+
+        return $products;
+    }
+
     public function getProducts_leftjoin_category_1()
     {
         $products = Product::leftJoin('product_category','product_id','=','id')
