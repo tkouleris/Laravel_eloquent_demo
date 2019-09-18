@@ -37,6 +37,13 @@ class GlobalController extends Controller
     {
         $products = Product::leftJoin('product_category','product_id','=','id')
                         ->leftJoin('categories','categories.id','=','category_id')
+                        ->select('products.id',
+                                 'sku',
+                                 'products.title as Product',
+                                 'products.description as Product_Description',
+                                 'categories.title as Category',
+                                 'categories.description as Category_Description',
+                                 'price')
                         ->get();
 
         return $products;
@@ -95,16 +102,14 @@ class GlobalController extends Controller
         }
 
         return $output;
-
-        return $products;
     }
 
     public function getProducts_leftjoin_category_1()
     {
         $products = Product::leftJoin('product_category','product_id','=','id')
-        ->leftJoin('categories','categories.id','=','category_id')
-        ->where('category_id','=','1')
-        ->get();
+            ->leftJoin('categories','categories.id','=','category_id')
+            ->where('category_id','=','1')
+            ->get();
 
         return $products;
     }
